@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="源文件\my_vector">
+      <UniqueIdentifier>{032b6111-a9a6-4dc8-bd9a-2ea9a8716b0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\my_exception">
+      <UniqueIdentifier>{8f52bf0a-a34f-4757-a66d-21a51f1385a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\my_list">
+      <UniqueIdentifier>{7a3e5564-6a1f-48bb-a973-b89b7d7ae0a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\my_rb_tree">
+      <UniqueIdentifier>{b8c703d9-8193-40c5-ad3b-dcdf10add3db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\node">
+      <UniqueIdentifier>{9983e0b1-c39b-490d-9957-beea9dee8e78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\forward_list">
+      <UniqueIdentifier>{129f7bad-d248-4c98-9f4e-dc2885ca2ae6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\bidirectional_list">
+      <UniqueIdentifier>{25837f4e-f869-42c7-b3ff-471120dce119}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\tree">
+      <UniqueIdentifier>{ce5b3266-b58f-4862-9d12-636bc6f558b2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="test.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="headers.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="my_vector_iterator.h">
+      <Filter>源文件\my_vector</Filter>
+    </ClInclude>
+    <ClInclude Include="my_vector.h">
+      <Filter>源文件\my_vector</Filter>
+    </ClInclude>
+    <ClInclude Include="my_exception.h">
+      <Filter>源文件\my_exception</Filter>
+    </ClInclude>
+    <ClInclude Include="bi_node.h">
+      <Filter>源文件\my_list</Filter>
+    </ClInclude>
+    <ClInclude Include="bi_node_iterator.h">
+      <Filter>源文件\my_list</Filter>
+    </ClInclude>
+    <ClInclude Include="bidirection_list.h">
+      <Filter>源文件\my_list</Filter>
+    </ClInclude>
+    <ClInclude Include="my_rb_tree_node.h">
+      <Filter>源文件\my_rb_tree</Filter>
+    </ClInclude>
+    <ClInclude Include="node_traits.h">
+      <Filter>源文件\node</Filter>
+    </ClInclude>
+    <ClInclude Include="binary_tree_node.h">
+      <Filter>源文件\node</Filter>
+    </ClInclude>
+    <ClInclude Include="rb_tree_node.h">
+      <Filter>源文件\node</Filter>
+    </ClInclude>
+    <ClInclude Include="my_forward_iterator.h">
+      <Filter>源文件\forward_list</Filter>
+    </ClInclude>
+    <ClInclude Include="my_forward_list.h">
+      <Filter>源文件\forward_list</Filter>
+    </ClInclude>
+    <ClInclude Include="my_forward_node.h">
+      <Filter>源文件\node</Filter>
+    </ClInclude>
+    <ClInclude Include="my_bidirection_node.h">
+      <Filter>源文件\node</Filter>
+    </ClInclude>
+    <ClInclude Include="my_bidirectional_iterator.h">
+      <Filter>源文件\bidirectional_list</Filter>
+    </ClInclude>
+    <ClInclude Include="my_bidirectional_list.h">
+      <Filter>源文件\bidirectional_list</Filter>
+    </ClInclude>
+    <ClInclude Include="rb_tree.h">
+      <Filter>源文件\tree</Filter>
+    </ClInclude>
+    <ClInclude Include="rb_tree_iterator.h">
+      <Filter>源文件\tree</Filter>
+    </ClInclude>
+    <ClInclude Include="basic_tree_iterator.h">
+      <Filter>源文件\tree</Filter>
+    </ClInclude>
+    <ClInclude Include="basic_binary_tree.h">
+      <Filter>源文件\tree</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
