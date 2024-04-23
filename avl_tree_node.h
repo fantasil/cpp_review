@@ -145,7 +145,11 @@ namespace fantasil {
 			}
 			node_ptr child = del->_left ? del->_left : del->_right;
 			if (del == root)
-				root=child;
+			{
+				root = child;
+				if (root)
+					root->_parent = nullptr;
+			}
 			else {
 				if (is_left(del))
 					as_left(p, child);
@@ -161,7 +165,7 @@ namespace fantasil {
 		Node* erase(Node* root, Node* node,Alloc& alloc)
 		{
 			using node_ptr = Node*;
-			node_ptr del = binary_search_tree_node_helper::locate_postion_to_delete(root, node);
+			node_ptr del = binary_search_tree_node_helper::locate_position_to_delete(root, node);
 			return erase_impl(root, node, del, alloc);
 		}
 

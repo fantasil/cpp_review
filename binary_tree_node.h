@@ -3,6 +3,8 @@
 #include"node_traits.h"
 #include<type_traits>
 #include<memory>
+#include<stack>
+#include<queue>
 
 namespace fantasil
 {
@@ -96,6 +98,8 @@ namespace fantasil
 		//后序遍历
 		template<binary_tree_node_type Node, typename ostream>
 		void post_order(Node* root, ostream& os);
+		template<binary_tree_node_type Node,typename ostream>
+		void level_order(Node* root, ostream& os);
 		//前驱节点
 		// template<binary_tree_node_type Node>
 		template<binary_tree_node_type Node>
@@ -356,6 +360,35 @@ namespace fantasil
 				post_order(root->_left, os);
 				post_order(root->_right, os);
 				os << *root << " ";
+			}
+		}
+
+		template<binary_tree_node_type Node, typename ostream>
+		void level_order(Node* root, ostream& os)
+		{
+			using node_ptr = Node*;
+			std::queue<node_ptr> q;
+			q.push(root);
+			size_t level = 1;
+			while (!q.empty())
+			{
+				std::cout << "level " << level<<":";
+				size_t sz = q.size();
+
+				for (size_t i = 0; i != sz; ++i)
+				{
+					node_ptr node = q.front();
+					q.pop();
+					os << *node;
+					if (node->_left)
+						q.push(node->_left);
+					if (node->_right)
+						q.push(node->_right);
+				}
+				
+				std::cout << std::endl;
+				++level;
+				
 			}
 		}
 

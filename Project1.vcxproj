@@ -156,7 +156,8 @@
     <ClInclude Include="rb_tree.h" />
     <ClInclude Include="rb_tree_iterator.h" />
     <ClInclude Include="rb_tree_node.h" />
-    <ClInclude Include="slay_tree_node.h" />
+    <ClInclude Include="splay_tree.h" />
+    <ClInclude Include="splay_tree_node.h" />
     <ClInclude Include="test.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

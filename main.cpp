@@ -3,7 +3,7 @@
 
 int main()
 {
-	fantasil::my_avl_tree_test();
+	fantasil::my_splay_tree_test();
 	system("pause");
 	return 0;
 }

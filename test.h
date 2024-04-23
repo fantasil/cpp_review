@@ -12,6 +12,7 @@
 #include"rb_tree_node.h"
 #include"binary_search_tree.h"
 #include"avl_tree.h"
+#include"splay_tree.h"
 #define DEBUG
 
 namespace fantasil
@@ -223,6 +224,7 @@ namespace fantasil
 		}
 	}
 
+	//²âÊÔavlÊ÷
 	void my_avl_tree_test()
 	{
 		using namespace fantasil;
@@ -236,6 +238,28 @@ namespace fantasil
 			tree.insert(p->first, p->second);
 		}
 		std::cout << tree << std::endl;
+		for (auto p = ilist.begin(); p != ilist.end(); ++p)
+		{
+			tree.erase(p->first);
+			std::cout << tree << std::endl;
+		}
+	}
+
+	//²âÊÔÉìÕ¹Ê÷
+	void my_splay_tree_test()
+	{
+		using namespace fantasil;
+
+		using node_type = splay_tree_node<int, int>;
+		using tree_type = splay_tree<int, int>;
+		std::initializer_list<std::pair<int, int>> ilist{ {5,5,},{11,11}, { 2,2 },{4,4},{6,6},{7,7},{8,8} };
+		tree_type tree{};
+		for (auto p = ilist.begin(); p != ilist.end(); ++p)
+		{
+			tree.insert(p->first, p->second);
+			std::cout << tree << std::endl;
+		}
+
 		for (auto p = ilist.begin(); p != ilist.end(); ++p)
 		{
 			tree.erase(p->first);

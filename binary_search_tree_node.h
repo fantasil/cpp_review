@@ -48,7 +48,7 @@ namespace fantasil {
 		Node* find(Node* root, const typename node_traits<Node>::key_type& key,Cmp cmp);
 		//定位删除节点的位置
 		template<binary_search_tree_node_type Node>
-		Node* locate_postion_to_delete(Node* root, Node* node);
+		Node* locate_position_to_delete(Node* root, Node* node);
 		//删除指定节点的内部实现
 		template<binary_search_tree_node_type Node, typename Alloc>
 		Node* erase_impl(Node* root, Node* node, Node* del, Alloc& alloc);
@@ -125,7 +125,7 @@ namespace fantasil {
 		}
 
 		template<binary_search_tree_node_type Node>
-		Node* locate_postion_to_delete(Node* root, Node* node)
+		Node* locate_position_to_delete(Node* root, Node* node)
 		{
 			return binary_tree_node_helper::binary_tree_location_real_erase_node(node);
 		}
@@ -147,7 +147,11 @@ namespace fantasil {
 			//child是node的孩子节点
 			node_ptr child = del->_left ? del->_left : del->_right;
 			if (del == root)
+			{
 				root = child;
+				if(root)
+					root->_parent = nullptr;
+			}
 			else {
 				if (is_left(del))
 					as_left<Node>(parent<Node>(del), child);
@@ -165,7 +169,7 @@ namespace fantasil {
 		Node* erase(Node* root, Node* del, Alloc& alloc)
 		{
 			using node_ptr = Node*;
-			node_ptr real_del = locate_postion_to_delete(root, del);
+			node_ptr real_del = locate_position_to_delete(root, del);
 			return erase_impl(root, del, real_del, alloc);
 		}
 
