@@ -273,7 +273,7 @@ namespace fantasil {
 		}
 
 		template<bi_node_type Node, typename Alloc>
-		Node* make_basic_bidirectional_list(size_t count, const typename node_traits<Node>::reference val, Alloc& alloc)
+		Node* make_basic_bidirectional_list(size_t count, const typename node_traits<Node>::value_type& val, Alloc& alloc)
 		{
 			using node_ptr = Node*;
 			//ππ‘Ï¡¥±Ì
@@ -343,7 +343,7 @@ namespace fantasil {
 		}
 
 		template<bi_node_type Node, typename Alloc>
-		void insert_after(Node* pos, size_t count, const typename node_traits<Node>::reference val, Alloc& alloc)
+		void insert_after(Node* pos, size_t count, const typename node_traits<Node>::value_type& val, Alloc& alloc)
 		{
 			using node_ptr = Node*;
 			node_ptr rhs_head = make_basic_bidirectional_list<Node, Alloc>(count, val, alloc);
@@ -354,7 +354,7 @@ namespace fantasil {
 		}
 
 		template<bi_node_type Node, typename Alloc>
-		Node* insert_before(Node* pos, size_t count, const typename node_traits<Node>::reference val, Alloc& alloc)
+		Node* insert_before(Node* pos, size_t count, const typename node_traits<Node>::value_type& val, Alloc& alloc)
 		{
 			using node_ptr = Node*;
 			node_ptr rhs_head = make_basic_bidirectional_list<Node, Alloc>(count, val, alloc);
@@ -366,7 +366,7 @@ namespace fantasil {
 		}
 
 		template<bi_node_type Node, typename Alloc>
-		void insert_after(Node* pos, const typename node_traits<Node>::reference val, Alloc& alloc)
+		void insert_after(Node* pos, const typename node_traits<Node>::value_type& val, Alloc& alloc)
 		{
 			insert_after<Node, Alloc>(pos, 1, val, alloc);
 		}

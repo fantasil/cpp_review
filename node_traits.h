@@ -5,7 +5,7 @@
 template<typename Node>
 struct node_traits {
 	using value_type = typename Node::value_type;
-	using reference = typename Node::value_type;
+	using reference = typename Node::reference;
 	using pointer = typename Node::pointer;
 	using node_type = Node;
 	using node_ptr = node_type*;
@@ -20,6 +20,8 @@ struct bidirectional_node_tag :forward_node_tag {};
 
 //普通二叉树节点标签
 struct binary_tree_node_tag {};
+//二叉搜索树的节点标签
+struct binary_search_tree_node_tag :binary_tree_node_tag {};
 //红黑树节点标签
 struct rb_tree_node_tag :binary_tree_node_tag {};	
 
@@ -92,6 +94,28 @@ inline void init_bianry_tree_node_type(Node* node, const typename node_traits<No
 }
 
 /*
+* 默认包含键域_key,值域_val，指针域_parent,_left,_right
+*/
+template<typename Node>
+concept binary_search_tree_node_type = std::is_base_of_v<binary_search_tree_node_tag, typename node_traits<Node>::node_category>	//继承自binary_search_tree_node_tag
+									   || std::is_same_v<binary_search_tree_node_tag, typename node_traits<Node>::node_category>;		//是binary_search_tree_node_tag
+
+
+//初始化一个二叉搜索树节点
+template<binary_search_tree_node_type Node>
+inline void init_binary_search_tree_node_type(Node* node, const typename Node::key_type& key,
+	const typename node_traits<Node>::value_type& val, Node* parent = nullptr, Node* left = nullptr, Node* right = nullptr)
+{
+	if (node) {
+		node->_key = key;
+		node->_val = val;
+		node->_parent = parent;
+		node->_left = left;
+		node->_right = right;
+	}
+}
+
+/*
 * 默认包含关键词域_key,值域_val,色域_clr,指针域_parent,_left,_right
 */
 template<typename Node>
@@ -118,6 +142,6 @@ inline void init_rb_tree_node_type(Node* node, const typename Node::key_type& ke
 
 //Iter是一个pair<K,V>的序列
 template<typename Iter,typename K,typename V>
-concept input_iterator_of_pair = input_iterator_type<Iter>&& std::is_same_v<std::pair<K, V>, typename std::iterator_traits<Iter>::value_type>;
+concept input_iterator_of_pair = input_iterator_type<Iter>&& std::is_same_v<std::pair<K, V>, typename std::decay_t<typename std::iterator_traits<Iter>::value_type>>;
 
 

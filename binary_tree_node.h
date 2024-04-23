@@ -103,6 +103,13 @@ namespace fantasil
 		//后继节点
 		template<binary_tree_node_type Node>
 		Node* successor(Node* node);
+		//左旋转
+		template<binary_tree_node_type Node>
+		void turn_left(Node* node);
+		//右旋转
+		template<binary_tree_node_type Node>
+		void turn_right(Node* node);
+
 		//构造一棵二叉树
 		template<binary_tree_node_type Node,input_iterator_type Iter,typename Alloc,typename Cmp>
 		Node* make_basic_bianry_tree(Iter begin, Iter end, Alloc& alloc, Cmp cmp);
@@ -130,12 +137,7 @@ namespace fantasil
 		//删除分发
 		template<binary_tree_node_type Node,typename Alloc>
 		void binary_tree_erase_aux(Node* root, Node* to_delete,Alloc& alloc, binary_tree_node_tag);
-		//左旋转
-		template<binary_tree_node_type Node>
-		void turn_left(Node* node);
-		//右旋转
-		template<binary_tree_node_type Node>
-		void turn_right(Node* node);
+	
 		//返回第一个值为val的节点
 		template<binary_tree_node_type Node,typename Cmp>
 		Node* binary_tree_find(Node* root,const typename node_traits<Node>::reference val, Cmp cmp);
@@ -145,6 +147,22 @@ namespace fantasil
 		//删除"实际被删除"的节点
 		template<binary_tree_node_type Node,typename Alloc>
 		Node* binary_tree_erase_impl(Node* root, Node* to_delete, Node* real_node_to_erase, Alloc& alloc);
+
+		//
+		//当前节点的平衡因子
+		template<binary_tree_node_type Node>
+		int balance_factor(Node* node);
+
+		template<binary_tree_node_type Node>
+		Node* avl_tree_insert_fixup(Node* root, Node* node);
+		template<binary_tree_node_type Node>
+		Node* avl_tree_erase_fixup(Node* root, Node* node);
+
+		template<binary_tree_node_type Node>
+		Node* avl_tree_fixup(Node* root, Node* node);
+
+		template<binary_tree_node_type Node,input_iterator_type Iter,typename Alloc,typename Cmp>
+		Node* make_avl_tree(Iter begin, Iter end, Alloc& alloc, Cmp cmp);
 
 
 		
@@ -587,7 +605,7 @@ namespace fantasil
 		}
 
 		template<binary_tree_node_type Node, typename Cmp>
-		Node* binary_tree_find(Node* root,const typename node_traits<Node>::reference val, Cmp cmp)
+		Node* binary_tree_find(Node* root,const typename node_traits<Node>::value_type& val, Cmp cmp)
 		{
 			using node_ptr = Node*;
 			node_ptr cur = root;
@@ -625,7 +643,7 @@ namespace fantasil
 		}
 
 		template<binary_tree_node_type Node, typename Alloc, typename Cmp>
-		Node* binary_tree_insert(Node* root, size_t count, const typename node_traits<Node>::reference val, Alloc& alloc, Cmp cmp)
+		Node* binary_tree_insert(Node* root, size_t count, const typename node_traits<Node>::value_type& val, Alloc& alloc, Cmp cmp)
 		{
 			using node_ptr = Node*;
 			node_ptr tmp = nullptr;
@@ -747,6 +765,89 @@ namespace fantasil
 			alloc.deallocate(real_node_to_erase, 1);
 			return root;
 
+		}
+
+		template<binary_tree_node_type Node>
+		int balance_factor(Node* node)
+		{
+			if (!node)
+				return 0;
+			return static_cast<int>(height(node->_left)) -static_cast<int>( height(node->_right));
+		}
+
+		template<binary_tree_node_type Node>
+		Node* avl_tree_insert_fixup(Node* root, Node* node)
+		{
+			return avl_tree_fixup(root, node);
+		}
+
+		template<binary_tree_node_type Node>
+		Node* avl_tree_fixup(Node* root, Node* node)
+		{
+			using node_ptr = Node*;
+			node_ptr gp = node;
+			node_ptr tmp = nullptr;
+			while (gp)
+			{
+				if (balance_factor(gp)==2)
+				{
+					node_ptr p = gp->_left;
+					if (balance_factor(p) == -1)
+					{
+						node_ptr c = p->_right;
+						turn_left(c);
+						tmp = p;
+						p = c;
+						c = tmp;
+						tmp = nullptr;
+					}
+					turn_right(p);
+					if (gp == root)
+						root = p;
+					gp = p;
+				}
+				else if (balance_factor(gp) == -2)
+				{
+					node_ptr p = gp->_right;
+					if (balance_factor(p) == 1)
+					{
+						node_ptr c = p->_left;
+						turn_right(c);
+						tmp = p;
+						p = c;
+						c = tmp;
+						tmp = nullptr;
+					}
+					turn_left(p);
+					if (gp == root)
+						root = p;
+					gp = p;
+				}
+				gp = gp->_parent;
+			}
+			return root;
+		}
+
+		template<binary_tree_node_type Node, input_iterator_type Iter, typename Alloc, typename Cmp>
+		Node* make_avl_tree(Iter begin, Iter end, Alloc& alloc, Cmp cmp)
+		{
+			using node_ptr = Node*;
+			static_assert(std::is_same_v<Node,typename std::allocator_traits<Alloc>::value_type>);
+			if (begin == end)
+				return nullptr;
+			//初始化根
+			node_ptr root = alloc.allocate(1);
+			init_bianry_tree_node_type(root, *begin);
+			//
+			node_ptr tmp = nullptr;
+			for (auto p = ++begin; p != end; ++p)
+			{
+				tmp = alloc.allocate(1);
+				init_bianry_tree_node_type(tmp, *p);
+				root=binary_tree_insert(root, tmp, cmp);
+				root=avl_tree_insert_fixup(root, tmp);
+			}
+			return root;
 		}
 
 	}

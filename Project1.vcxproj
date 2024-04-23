@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -131,9 +131,13 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="avl_tree.h" />
+    <ClInclude Include="avl_tree_node.h" />
     <ClInclude Include="basic_binary_tree.h" />
     <ClInclude Include="basic_tree_iterator.h" />
+    <ClInclude Include="binary_search_tree.h" />
     <ClInclude Include="bidirection_list.h" />
+    <ClInclude Include="binary_search_tree_node.h" />
     <ClInclude Include="binary_tree_node.h" />
     <ClInclude Include="bi_node.h" />
     <ClInclude Include="bi_node_iterator.h" />
@@ -152,6 +156,7 @@
     <ClInclude Include="rb_tree.h" />
     <ClInclude Include="rb_tree_iterator.h" />
     <ClInclude Include="rb_tree_node.h" />
+    <ClInclude Include="slay_tree_node.h" />
     <ClInclude Include="test.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

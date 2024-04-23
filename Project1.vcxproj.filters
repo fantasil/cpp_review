@@ -110,5 +110,20 @@
     <ClInclude Include="basic_binary_tree.h">
       <Filter>源文件\tree</Filter>
     </ClInclude>
+    <ClInclude Include="avl_tree_node.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binary_search_tree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binary_search_tree_node.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="slay_tree_node.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="avl_tree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

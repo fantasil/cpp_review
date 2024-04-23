@@ -25,7 +25,7 @@ namespace fantasil {
 		using key_type = K;
 		using value_type = V;
 		using color_type = rb_clr;
-		using refernce = value_type&;
+		using reference = value_type&;
 		using pointer = value_type*;
 		using node_type = rb_tree_node<K, V>;
 		using node_ptr = node_type*;

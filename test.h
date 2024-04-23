@@ -10,6 +10,8 @@
 
 #include"my_forward_list.h"
 #include"rb_tree_node.h"
+#include"binary_search_tree.h"
+#include"avl_tree.h"
 #define DEBUG
 
 namespace fantasil
@@ -67,7 +69,8 @@ namespace fantasil
 		
 		std::initializer_list<int> ilist{ 5,2,4,1,3,7,8 };
 		using iterator = decltype(ilist.begin());
-		auto root = make_basic_bianry_tree<node_type, iterator, allocator_type, std::less<int>>(ilist.begin(), ilist.end(), alloc, cmp);
+		//auto root = make_basic_bianry_tree<node_type, iterator, allocator_type, std::less<int>>(ilist.begin(), ilist.end(), alloc, cmp);
+		auto root = make_avl_tree<node_type>(ilist.begin(), ilist.end(), alloc, cmp);
 
 		std::cout << "pre_order:\n";
 		pre_order(root, std::cout);
@@ -76,10 +79,10 @@ namespace fantasil
 		std::cout << "\npost_order:\n";
 		post_order(root, std::cout);
 		
-		auto node = binary_tree_find(root, 2, std::less<int>{});
+		/*auto node = binary_tree_find(root, 2, std::less<int>{});
 		turn_right(node);
 		std::cout << "\n";
-		pre_order(root, std::cout);
+		pre_order(root, std::cout);*/
 		
 
 	}
@@ -166,7 +169,7 @@ namespace fantasil
 
 	void my_bi_node_test()
 	{
-		using namespace fantasil;
+	/*	using namespace fantasil;
 		using namespace fantasil::bi_node_helper;
 		using node_type = bi_node<int>;
 		using node_ptr = node_type*;
@@ -194,9 +197,50 @@ namespace fantasil
 		print_bidirectional_list(head, std::cout);
 	
 		head=bi_node_helper::erase_sublist(head, step_forward(head, 3), alloc);
-		print_bidirectional_list(head, std::cout);
+		print_bidirectional_list(head, std::cout);*/
 
 		
+	}
+
+	//²âÊÔ¶þ²æËÑË÷Ê÷
+	void my_binary_search_tree_test()
+	{
+		using namespace fantasil;
+		
+		using node_type = binary_search_tree_node<int, int>;
+		using tree_type = binary_search_tree<int, int>;
+		std::initializer_list<std::pair<int, int>> ilist{ {5,5,},{11,11}, { 2,2 },{4,4},{6,6},{7,7},{8,8} };
+		tree_type tree{};
+		for (auto p = ilist.begin(); p != ilist.end(); ++p)
+		{
+			tree.insert(p->first, p->second);
+		}
+		std::cout << tree << std::endl;
+		for (auto p = ilist.begin(); p != ilist.end(); ++p)
+		{
+			tree.erase(p->first);
+			std::cout << tree << std::endl;
+		}
+	}
+
+	void my_avl_tree_test()
+	{
+		using namespace fantasil;
+
+		using node_type = avl_tree_node<int, int>;
+		using tree_type = avl_tree<int, int>;
+		std::initializer_list<std::pair<int, int>> ilist{ {5,5,},{11,11}, { 2,2 },{4,4},{6,6},{7,7},{8,8} };
+		tree_type tree{};
+		for (auto p = ilist.begin(); p != ilist.end(); ++p)
+		{
+			tree.insert(p->first, p->second);
+		}
+		std::cout << tree << std::endl;
+		for (auto p = ilist.begin(); p != ilist.end(); ++p)
+		{
+			tree.erase(p->first);
+			std::cout << tree << std::endl;
+		}
 	}
 
 	void my_bi_iter_test()
@@ -300,7 +344,7 @@ namespace fantasil
 	//²âÊÔºìºÚÊ÷½Úµã
 	void my_rb_node_test()
 	{
-		using node_type = rb_tree_node<int, int>;
+	/*	using node_type = rb_tree_node<int, int>;
 		using node_ptr = node_type*;
 		using allocator_type = std::allocator<node_type>;
 		using cmp_type = std::less<int>;
@@ -331,7 +375,7 @@ namespace fantasil
 				binary_tree_node_helper::pre_order(root, std::cout);
 			else
 				std::cout << "{empty}" << std::endl;
-		}
+		}*/
 
 		
 	}
