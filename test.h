@@ -13,6 +13,7 @@
 #include"binary_search_tree.h"
 #include"avl_tree.h"
 #include"splay_tree.h"
+#include"basic_b_tree_node.h"
 #define DEBUG
 
 namespace fantasil
@@ -486,6 +487,72 @@ namespace fantasil
 		std::cout << tree << std::endl;
 
 		
+	}
+
+
+	void b_tree_node_test()
+	{
+		using namespace fantasil;
+		using namespace fantasil::basic_b_tree_node_helper;
+		/*
+		* Degree=3,elem_max_num=5,cld_max_num=6
+		*/
+		using node_type = basic_b_tree_node<char, char, 3>;
+		using node_ptr = node_type*;
+		using allocator_type = std::allocator<node_type>;
+
+
+
+		//allocator_type alloc{};
+		//node_ptr node = new node_type{};
+
+		//
+		//std::vector<std::pair<int, int>> vec;
+		//for (int i = 0; i != node_type::max_elem_num-1; ++i)
+		//{
+		//	std::pair<int, int> p{ i * 2,i * 2 };
+		//	vec.push_back(p);
+		//}
+		//std::vector<node_ptr> vec2{};
+		//for (size_t n = 0; n != node_type::max_cld_num-1; ++n)
+		//{
+		//	vec2.push_back(nullptr);
+		//}
+		//
+		//node->_elem.insert(node->_elem.begin(), vec.begin(), vec.end());
+		//node->_children.insert(node->_children.begin(), vec2.begin(), vec2.end());
+	
+		//node->_parent = nullptr;
+		////观察0：node的状态
+		//
+
+		////观察1：elem_into_unfull_node
+		//std::pair<int, int> p{ 20,20 };
+		//elem_into_unfull_node(node, p);
+		//system("pause");
+
+		////观察2：split
+		//split(node);
+		//system("pause");
+		node_ptr root = nullptr;
+		std::initializer_list<char> ilist = { 'F','S','Q','K','C','L','H','T','V','W','M','R','N','P','A','B','X','Y','D','Z','E' };
+		for (auto p = ilist.begin(); p != ilist.end(); ++p)
+		{
+			
+			root = insert(root, *p, *p);
+		}
+
+		level_order(root, std::cout);
+
+		for (auto p = ilist.begin(); p != ilist.end(); ++p)
+		{
+			root = erase(root, *p);
+			std::cout << "\n after erase " << *p << ":\n";
+			level_order(root, std::cout);
+		}
+
+		int i = 5;
+
 	}
 
 	

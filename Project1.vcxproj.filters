@@ -37,6 +37,9 @@
     <Filter Include="源文件\tree">
       <UniqueIdentifier>{ce5b3266-b58f-4862-9d12-636bc6f558b2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="BTree">
+      <UniqueIdentifier>{55cef683-e69a-4214-b295-b9af69c07274}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -127,6 +130,12 @@
     </ClInclude>
     <ClInclude Include="splay_tree.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="m_way_tree_search_node.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="basic_b_tree_node.h">
+      <Filter>BTree</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
