@@ -3,7 +3,7 @@
 
 int main()
 {
-	fantasil::b_tree_node_test();
+	fantasil::test();
 	system("pause");
 	return 0;
 }

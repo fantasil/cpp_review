@@ -13,32 +13,71 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="源文件\my_vector">
-      <UniqueIdentifier>{032b6111-a9a6-4dc8-bd9a-2ea9a8716b0a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\my_exception">
-      <UniqueIdentifier>{8f52bf0a-a34f-4757-a66d-21a51f1385a5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="源文件\my_list">
       <UniqueIdentifier>{7a3e5564-6a1f-48bb-a973-b89b7d7ae0a9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\my_rb_tree">
-      <UniqueIdentifier>{b8c703d9-8193-40c5-ad3b-dcdf10add3db}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\node">
-      <UniqueIdentifier>{9983e0b1-c39b-490d-9957-beea9dee8e78}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\forward_list">
-      <UniqueIdentifier>{129f7bad-d248-4c98-9f4e-dc2885ca2ae6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\bidirectional_list">
-      <UniqueIdentifier>{25837f4e-f869-42c7-b3ff-471120dce119}</UniqueIdentifier>
     </Filter>
     <Filter Include="源文件\tree">
       <UniqueIdentifier>{ce5b3266-b58f-4862-9d12-636bc6f558b2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="BTree">
+    <Filter Include="graph">
+      <UniqueIdentifier>{241e9810-dff5-4e86-b4b0-f57316b592ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Trees">
+      <UniqueIdentifier>{3e5afb7b-5750-4b32-a739-f9076e528e64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Trees\BTree">
       <UniqueIdentifier>{55cef683-e69a-4214-b295-b9af69c07274}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Trees\SplayTree">
+      <UniqueIdentifier>{5701feae-9c0a-41ea-b4e2-a2ec2c12b162}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Trees\my_rb_tree">
+      <UniqueIdentifier>{b8c703d9-8193-40c5-ad3b-dcdf10add3db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="list">
+      <UniqueIdentifier>{c9bcf6e3-21eb-4e94-92fd-71636be25758}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="list\forward_list">
+      <UniqueIdentifier>{129f7bad-d248-4c98-9f4e-dc2885ca2ae6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="list\bidirectional_list">
+      <UniqueIdentifier>{25837f4e-f869-42c7-b3ff-471120dce119}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Trees\SearchTree">
+      <UniqueIdentifier>{f6515520-f9c1-4f18-b274-7540e3e6a7d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Trees\AVLTree">
+      <UniqueIdentifier>{2c42d72c-2d82-4bd7-8c60-adea7fbbc938}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vector">
+      <UniqueIdentifier>{f13efffb-eade-4112-bf30-5699eb76213b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vector\my_vector">
+      <UniqueIdentifier>{032b6111-a9a6-4dc8-bd9a-2ea9a8716b0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="node">
+      <UniqueIdentifier>{e45a3b11-72c4-46f6-81e0-489f1973dae0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="node\node">
+      <UniqueIdentifier>{9983e0b1-c39b-490d-9957-beea9dee8e78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="exceptions">
+      <UniqueIdentifier>{42f0a399-cba2-4c90-9601-4d7758986eb6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="exceptions\my_exception">
+      <UniqueIdentifier>{8f52bf0a-a34f-4757-a66d-21a51f1385a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_for_test">
+      <UniqueIdentifier>{6d7fc837-cfc5-4cfa-8569-85383378af5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="list\bidirectional_cyclic_list">
+      <UniqueIdentifier>{0fb45623-8102-4e49-9468-efb2e2fbe8aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Trees\FibTree">
+      <UniqueIdentifier>{6c93dac5-0aa4-4c88-b489-a55d77d4d634}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Trees\vanEmdeBoasTree">
+      <UniqueIdentifier>{893380be-bbe7-4cc2-a82d-1a8515b6094d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -47,20 +86,17 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="test.h">
-      <Filter>源文件</Filter>
-    </ClInclude>
     <ClInclude Include="headers.h">
       <Filter>源文件</Filter>
     </ClInclude>
     <ClInclude Include="my_vector_iterator.h">
-      <Filter>源文件\my_vector</Filter>
+      <Filter>vector\my_vector</Filter>
     </ClInclude>
     <ClInclude Include="my_vector.h">
-      <Filter>源文件\my_vector</Filter>
+      <Filter>vector\my_vector</Filter>
     </ClInclude>
     <ClInclude Include="my_exception.h">
-      <Filter>源文件\my_exception</Filter>
+      <Filter>exceptions\my_exception</Filter>
     </ClInclude>
     <ClInclude Include="bi_node.h">
       <Filter>源文件\my_list</Filter>
@@ -72,70 +108,97 @@
       <Filter>源文件\my_list</Filter>
     </ClInclude>
     <ClInclude Include="my_rb_tree_node.h">
-      <Filter>源文件\my_rb_tree</Filter>
+      <Filter>Trees\my_rb_tree</Filter>
     </ClInclude>
     <ClInclude Include="node_traits.h">
-      <Filter>源文件\node</Filter>
+      <Filter>node\node</Filter>
     </ClInclude>
     <ClInclude Include="binary_tree_node.h">
-      <Filter>源文件\node</Filter>
+      <Filter>node\node</Filter>
     </ClInclude>
     <ClInclude Include="rb_tree_node.h">
-      <Filter>源文件\node</Filter>
+      <Filter>node\node</Filter>
     </ClInclude>
     <ClInclude Include="my_forward_iterator.h">
-      <Filter>源文件\forward_list</Filter>
+      <Filter>list\forward_list</Filter>
     </ClInclude>
     <ClInclude Include="my_forward_list.h">
-      <Filter>源文件\forward_list</Filter>
+      <Filter>list\forward_list</Filter>
     </ClInclude>
     <ClInclude Include="my_forward_node.h">
-      <Filter>源文件\node</Filter>
+      <Filter>node\node</Filter>
     </ClInclude>
     <ClInclude Include="my_bidirection_node.h">
-      <Filter>源文件\node</Filter>
+      <Filter>node\node</Filter>
     </ClInclude>
     <ClInclude Include="my_bidirectional_iterator.h">
-      <Filter>源文件\bidirectional_list</Filter>
+      <Filter>list\bidirectional_list</Filter>
     </ClInclude>
     <ClInclude Include="my_bidirectional_list.h">
-      <Filter>源文件\bidirectional_list</Filter>
-    </ClInclude>
-    <ClInclude Include="rb_tree.h">
-      <Filter>源文件\tree</Filter>
-    </ClInclude>
-    <ClInclude Include="rb_tree_iterator.h">
-      <Filter>源文件\tree</Filter>
-    </ClInclude>
-    <ClInclude Include="basic_tree_iterator.h">
-      <Filter>源文件\tree</Filter>
+      <Filter>list\bidirectional_list</Filter>
     </ClInclude>
     <ClInclude Include="basic_binary_tree.h">
       <Filter>源文件\tree</Filter>
-    </ClInclude>
-    <ClInclude Include="avl_tree_node.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="binary_search_tree.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="binary_search_tree_node.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="splay_tree_node.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="avl_tree.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="splay_tree.h">
-      <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="m_way_tree_search_node.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="basic_b_tree_node.h">
-      <Filter>BTree</Filter>
+      <Filter>Trees\BTree</Filter>
     </ClInclude>
+    <ClInclude Include="basic_graph_node.h">
+      <Filter>graph</Filter>
+    </ClInclude>
+    <ClInclude Include="my_list.h">
+      <Filter>源文件\my_list</Filter>
+    </ClInclude>
+    <ClInclude Include="bi_dir_cyclic_list.h">
+      <Filter>源文件\my_list</Filter>
+    </ClInclude>
+    <ClInclude Include="splay_tree_node.h">
+      <Filter>Trees\SplayTree</Filter>
+    </ClInclude>
+    <ClInclude Include="splay_tree.h">
+      <Filter>Trees\SplayTree</Filter>
+    </ClInclude>
+    <ClInclude Include="rb_tree_iterator.h">
+      <Filter>Trees\my_rb_tree</Filter>
+    </ClInclude>
+    <ClInclude Include="rb_tree.h">
+      <Filter>Trees\my_rb_tree</Filter>
+    </ClInclude>
+    <ClInclude Include="basic_tree_iterator.h">
+      <Filter>Trees\my_rb_tree</Filter>
+    </ClInclude>
+    <ClInclude Include="binary_search_tree.h">
+      <Filter>Trees\SearchTree</Filter>
+    </ClInclude>
+    <ClInclude Include="binary_search_tree_node.h">
+      <Filter>Trees\SearchTree</Filter>
+    </ClInclude>
+    <ClInclude Include="avl_tree.h">
+      <Filter>Trees\AVLTree</Filter>
+    </ClInclude>
+    <ClInclude Include="avl_tree_node.h">
+      <Filter>Trees\AVLTree</Filter>
+    </ClInclude>
+    <ClInclude Include="test.h">
+      <Filter>_for_test</Filter>
+    </ClInclude>
+    <ClInclude Include="bidirectional_circular_list.h">
+      <Filter>list\bidirectional_cyclic_list</Filter>
+    </ClInclude>
+    <ClInclude Include="fib_heap_node.h">
+      <Filter>Trees\FibTree</Filter>
+    </ClInclude>
+    <ClInclude Include="proto_vEB.h">
+      <Filter>Trees\vanEmdeBoasTree</Filter>
+    </ClInclude>
+    <ClInclude Include="fib_heap_tree.h">
+      <Filter>Trees\FibTree</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="fib_heap.md" />
   </ItemGroup>
 </Project>

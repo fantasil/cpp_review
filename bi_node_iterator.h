@@ -4,8 +4,8 @@
 
 namespace fantasil
 {
+	
 	//一个双向链表的迭代器
-
 	template<typename T>
 	class bi_node_iterator {
 	public:

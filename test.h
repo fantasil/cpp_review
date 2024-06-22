@@ -14,6 +14,10 @@
 #include"avl_tree.h"
 #include"splay_tree.h"
 #include"basic_b_tree_node.h"
+#include"bidirectional_circular_list.h"
+
+#include"fib_heap_node.h"
+#include"fib_heap_tree.h"
 #define DEBUG
 
 namespace fantasil
@@ -277,7 +281,7 @@ namespace fantasil
 		using allocator_type = std::allocator<node_type>;
 		using iterator = my_bidirectional_iterator<node_type>;
 
-		allocator_type alloc;
+	/*	allocator_type alloc;
 		std::initializer_list<int> ilist{ 1,2,3,4,5,6,7,8,9,10};
 
 		node_ptr head = make_basic_bidirectional_list<node_type, allocator_type>(ilist, alloc);
@@ -339,7 +343,7 @@ namespace fantasil
 		}
 
 		iterator third = sec + 5;
-		std::cout << *third << std::endl;
+		std::cout << *third << std::endl;*/
 
 
 	}
@@ -553,6 +557,81 @@ namespace fantasil
 
 		int i = 5;
 
+	}
+
+	//Ë«ÏòÑ­»·Á´±í²âÊÔ
+	void bidirectional_circular_list_test()
+	{
+		using list = bidirectional_circular_list<int>;
+
+		list li{};
+		std::initializer_list<int> aa{ 1,2,3,4,5,6,7,8 };
+
+		li.insert_after(li.end(), aa.begin(), aa.end());
+		std::cout << li << std::endl;
+
+		auto p = li.find(5);
+		li.erase(p);
+		std::cout << li << std::endl;
+		p = li.find(1);
+		li.erase(p);
+		std::cout << li << std::endl;
+		p = li.find(8);
+		li.erase(p);
+		std::cout << li << std::endl;
+
+		p = li.find(6);
+		auto q = li.find(3);
+		li.erase(p, q);
+		std::cout << li << std::endl;
+
+	}
+
+	void fib_heap_node_test()
+	{
+		using namespace std;
+		using node_type = fib_heap_node<size_t, size_t>;
+		using node_ptr = node_type*;
+
+		node_ptr min = nullptr;
+		for (size_t i = 0; i != 10; ++i)
+		{
+			std::pair<size_t, size_t> tmp{ i,i };
+			min=fib_heap_node_helper::insert(min, tmp);
+		}
+
+		min=fib_heap_node_helper::extract_min(min, 10);
+
+		node_ptr ll = min->_child->_child;
+		node_ptr lr = min->_child->_child->_right;
+		size_t j = 4;
+		size_t k = 3;
+		min = fib_heap_node_helper::decrease_key(min, lr, k);
+		min = fib_heap_node_helper::decrease_key(min, ll, j);
+
+		int i = 5;
+	}
+
+	void fib_heap_tree_test()
+	{
+		using namespace std;
+		
+		fib_heap_tree<int,int> fht{};
+		for (int i = 0; i != 10; ++i)
+		{
+			std::pair<int, int> tmp{ i,i };
+			fht.insert(tmp);
+		}
+
+		fht.extract_min();
+
+		int i = 5;
+	}
+
+
+	void test()
+	{
+		fib_heap_node_test();
 	}
 
 	

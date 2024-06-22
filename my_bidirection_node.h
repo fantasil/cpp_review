@@ -14,23 +14,6 @@ namespace fantasil {
 		using node_category = bidirectional_node_tag;
 
 		bi_node(const T& val, node_ptr prev = nullptr, node_ptr next = nullptr) :_val{ val }, _prev{ prev }, _next{ next } {}
-		/*bi_node(const node_type& rhs) :_val{ rhs._val }, _prev{ rhs._prev }, _next{ rhs._next } {}
-		bi_node(node_type&& rhs) :_val{ std::move(rhs._val) }, _prev{ rhs._prev }, _next{ rhs._next } { rhs._prev = rhs._next = nullptr; }
-		bi_node& operator=(const node_type& rhs)
-		{
-			_val = rhs._val;
-			_prev = rhs._prev;
-			_next = rhs._next;
-			return *this;
-		}
-
-		bi_node& operator=(node_type&& rhs)
-		{
-			_val = std::move(rhs._val);
-			_prev = rhs._prev;
-			_next = rhs._next;
-			rhs._prev = rhs._next = nullptr;
-		}*/
 		~bi_node() { _val.~T(); _prev = _next = nullptr; }
 
 		value_type _val;
@@ -63,7 +46,6 @@ namespace fantasil {
 
 	namespace bi_node_helper {
 
-		//declare
 
 		//
 		template<bi_node_type Node>

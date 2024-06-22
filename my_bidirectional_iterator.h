@@ -20,8 +20,8 @@ public:
 	~my_bidirectional_iterator() { _data = nullptr; }
 
 public:
-	inline reference operator*() { return _data->_val; }
-	inline node_ptr operator->() { return _data; }
+	inline reference operator*() const  { return _data->_val; }
+	inline node_ptr operator->()  const { return _data; }
 	inline iter_ref operator++()
 	{
 		if (_data)
@@ -103,8 +103,8 @@ public:
 		return *this;
 	}
 
-	inline bool operator==(const  iter_ref rhs) const { return _data == rhs._data; }
-	inline bool operator!=(const  iter_ref rhs) const { return _data != rhs._data; }
+	inline bool operator==(const  iter_type& rhs) const { return _data == rhs._data; }
+	inline bool operator!=(const  iter_type& rhs) const { return _data != rhs._data; }
 
 	explicit operator bool() { return nullptr != _data; }
 	inline node_ptr data() { return _data; }
@@ -116,17 +116,6 @@ private:
 };
 
 
-//template<bi_node_type Node>
-//bool operator==(const my_bidirectional_iterator<Node>& lhs, const my_bidirectional_iterator<Node>& rhs)
-//{
-//	return lhs.data() == rhs.data();
-//}
-//
-//template<bi_node_type Node>
-//bool operator!=(const my_bidirectional_iterator<Node>& lhs, const my_bidirectional_iterator<Node>& rhs)
-//{
-//	return lhs.data() != rhs.data();
-//}
 
 
 

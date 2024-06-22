@@ -52,8 +52,8 @@ namespace fantasil {
 		inline reference operator*() { return _data->_val; }
 		inline node_ptr operator->() { return _data; }
 
-		bool operator==(const iter_ref rhs) const { return _data == rhs._data; }
-		bool operator!=(const iter_ref rhs) const { return _data != rhs._data; }
+		bool operator==(const iter_type& rhs) const { return _data == rhs._data; }
+		bool operator!=(const iter_type& rhs) const { return _data != rhs._data; }
 
 		explicit operator bool() const { return _data != nullptr; }
 	public:

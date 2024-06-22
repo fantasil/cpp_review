@@ -56,12 +56,12 @@ namespace fantasil
 			return tmp;
 		}
 
-		inline bool operator==(const self_ref rhs) const
+		inline bool operator==(const self& rhs) const
 		{
 			return _data == rhs._data;
 		}
 
-		inline bool operator!=(const self_ref rhs) const
+		inline bool operator!=(const self& rhs) const
 		{
 			return _data != rhs._data;
 		}

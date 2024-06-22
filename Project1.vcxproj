@@ -135,13 +135,18 @@
     <ClInclude Include="avl_tree_node.h" />
     <ClInclude Include="basic_binary_tree.h" />
     <ClInclude Include="basic_b_tree_node.h" />
+    <ClInclude Include="basic_graph_node.h" />
     <ClInclude Include="basic_tree_iterator.h" />
+    <ClInclude Include="bidirectional_circular_list.h" />
     <ClInclude Include="binary_search_tree.h" />
     <ClInclude Include="bidirection_list.h" />
     <ClInclude Include="binary_search_tree_node.h" />
     <ClInclude Include="binary_tree_node.h" />
+    <ClInclude Include="bi_dir_cyclic_list.h" />
     <ClInclude Include="bi_node.h" />
     <ClInclude Include="bi_node_iterator.h" />
+    <ClInclude Include="fib_heap_node.h" />
+    <ClInclude Include="fib_heap_tree.h" />
     <ClInclude Include="headers.h" />
     <ClInclude Include="my_bidirectional_iterator.h" />
     <ClInclude Include="my_bidirectional_list.h" />
@@ -150,17 +155,22 @@
     <ClInclude Include="my_forward_iterator.h" />
     <ClInclude Include="my_forward_list.h" />
     <ClInclude Include="my_forward_node.h" />
+    <ClInclude Include="my_list.h" />
     <ClInclude Include="my_rb_tree_node.h" />
     <ClInclude Include="my_vector.h" />
     <ClInclude Include="my_vector_iterator.h" />
     <ClInclude Include="m_way_tree_search_node.h" />
     <ClInclude Include="node_traits.h" />
+    <ClInclude Include="proto_vEB.h" />
     <ClInclude Include="rb_tree.h" />
     <ClInclude Include="rb_tree_iterator.h" />
     <ClInclude Include="rb_tree_node.h" />
     <ClInclude Include="splay_tree.h" />
     <ClInclude Include="splay_tree_node.h" />
     <ClInclude Include="test.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="fib_heap.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

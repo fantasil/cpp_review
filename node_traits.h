@@ -24,7 +24,8 @@ struct binary_tree_node_tag {};
 struct binary_search_tree_node_tag :binary_tree_node_tag {};
 //红黑树节点标签
 struct rb_tree_node_tag :binary_tree_node_tag {};	
-
+//斐波那契堆节点标签
+struct fib_heap_tree_node_tag {};
 
 /*
 * 默认包含值域_val和指针域_next
@@ -57,6 +58,16 @@ inline void init_bi_node_type(Node* node, const typename node_traits<Node>::valu
 		node->_prev = prev;
 		node->_next = next;
 	}
+}
+
+template<bi_node_type Node,typename Alloc=std::allocator<Node>>
+inline Node* allocate_bi_node(const typename node_traits<Node>::value_type& val, Alloc& alloc, Node* prev = nullptr, Node* next = nullptr)
+{
+	static_assert(std::is_same_v<typename std::allocator_traits<Alloc>::value_type, Node>);
+	using node_ptr = Node*;
+	node_ptr tmp = alloc.allocate(1);
+	init_bi_node_type(tmp, val, prev, next);
+	return tmp;
 }
 
 
@@ -139,9 +150,27 @@ inline void init_rb_tree_node_type(Node* node, const typename Node::key_type& ke
 	}
 }
 
+/*
+* 
+*/
+
 
 //Iter是一个pair<K,V>的序列
 template<typename Iter,typename K,typename V>
 concept input_iterator_of_pair = input_iterator_type<Iter>&& std::is_same_v<std::pair<K, V>, typename std::decay_t<typename std::iterator_traits<Iter>::value_type>>;
+
+//
+template<class T,class=void>
+struct key_type :std::false_type{
+	using type = T;
+};
+
+template<class T>
+struct key_type<T, std::void_t<typename T::key_type>> :std::true_type {
+	using type = typename T::key_type;
+};
+
+template<typename T>
+using key_type_t = typename key_type<T>::type;
 
 
