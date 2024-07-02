@@ -18,6 +18,9 @@
 
 #include"fib_heap_node.h"
 #include"fib_heap_tree.h"
+
+#include"proto_vEB.h"
+#include<bitset>
 #define DEBUG
 
 namespace fantasil
@@ -628,10 +631,81 @@ namespace fantasil
 		int i = 5;
 	}
 
+	void proto_veb_test()
+	{
+		using namespace std;
+
+		proto_vEB<int, 256> pv{};
+
+		
+
+		auto min_and_max = [&pv]()
+			{
+				try {
+					size_t min = pv.min();
+					std::cout << "min:" << min << std::endl;
+					size_t max = pv.max();
+					std::cout << "max:" << max << std::endl;
+				}
+				catch (std::exception& e)
+				{
+					std::cout << e.what() << std::endl;
+				}
+			};
+
+		auto pre_and_suc = [&pv](size_t i)
+			{
+				if (pv.exist(i))
+				{
+					std::cout << "[";
+					try {
+						size_t pre = pv.precursor(i);
+						std::cout << pre;
+					}
+					catch (std::logic_error& e)
+					{
+						std::cout << "NIL";
+					}
+					std::cout << ",";
+					std::cout << pv.member(i) << ",";
+					try {
+						size_t suc = pv.successor(i);
+						std::cout << suc;
+					}
+					catch (std::logic_error& e)
+					{
+						std::cout << "NIL";
+					}
+					std::cout << "]";
+				}
+			};
+		//min_and_max();
+		vector<int> vec{ 2,3,4,5,7,14,15 };
+
+		for (auto p = vec.begin(); p != vec.end(); ++p)
+		{
+			pv.insert(*p, *p);
+		}
+		
+		for (size_t i = 0; i != 16; ++i)
+		{
+			pre_and_suc(i);
+		}
+
+		for (size_t i = 0; i != 16; ++i)
+		{
+			pv.erase(i);
+		}
+		//pv.erase(2);
+		
+
+		int i = 5;
+	}
+
 
 	void test()
 	{
-		fib_heap_node_test();
+		proto_veb_test();
 	}
 
 	

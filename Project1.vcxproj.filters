@@ -197,6 +197,9 @@
     <ClInclude Include="fib_heap_tree.h">
       <Filter>Trees\FibTree</Filter>
     </ClInclude>
+    <ClInclude Include="vEB.h">
+      <Filter>Trees\vanEmdeBoasTree</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="fib_heap.md" />

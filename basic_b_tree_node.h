@@ -904,6 +904,7 @@ namespace fantasil
 		{
 			using node_type = basic_b_tree_node<K, V, Degree>;
 			using node_ptr = node_type*;
+			node_ptr cur = root;
 			while (cur)
 			{
 				auto it = elem_position_in_node(cur, key);

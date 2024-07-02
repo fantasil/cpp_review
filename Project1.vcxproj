@@ -168,6 +168,7 @@
     <ClInclude Include="splay_tree.h" />
     <ClInclude Include="splay_tree_node.h" />
     <ClInclude Include="test.h" />
+    <ClInclude Include="vEB.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="fib_heap.md" />
