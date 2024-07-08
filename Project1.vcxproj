@@ -172,6 +172,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="fib_heap.md" />
+    <None Include="van_emde_boas.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

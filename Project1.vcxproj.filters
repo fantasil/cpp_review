@@ -203,5 +203,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="fib_heap.md" />
+    <None Include="van_emde_boas.md" />
   </ItemGroup>
 </Project>

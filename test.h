@@ -20,6 +20,8 @@
 #include"fib_heap_tree.h"
 
 #include"proto_vEB.h"
+#include"vEB.h"
+
 #include<bitset>
 #define DEBUG
 
@@ -703,9 +705,171 @@ namespace fantasil
 	}
 
 
+
+
+	void veb_test()
+	{
+		using namespace fantasil;
+		using namespace fantasil::veb;
+
+		van_emde_boas<int> veb{ 16 };
+
+		auto pre = [&veb](size_t i)
+			{
+				std::cout << "[";
+				try {
+					
+					int j = veb.precursor(i);
+					std::cout << j;
+				}
+				catch (std::logic_error& e)
+				{
+					std::cout << "nil";
+				}
+				std::cout << ",";
+			};
+
+		auto suc = [&veb](size_t i)
+			{
+				std::cout << ",";
+				try {
+					std::cout << veb.successor(i);
+				}
+				catch (std::logic_error& e)
+				{
+					std::cout << "nil";
+				}
+				std::cout << "]" << std::endl;
+			};
+
+		auto pre_and_suc = [&veb,&pre,&suc]()
+			{
+				for (size_t i = 0; i != 16; ++i)
+				{
+					pre(i);
+					std::cout << i;
+					suc(i);
+				}
+			};
+
+		auto print = [&veb]()
+			{
+				for (size_t i = 0; i != veb.capacity(); ++i)
+				{
+					std::cout << "[" << i << ",";
+					if (veb.exist(i))
+					{
+						std::cout << veb.member(i);
+					}
+					else {
+						std::cout << "nil";
+					}
+					std::cout << "]  ";
+				}
+			};
+
+		for (size_t i = 0; i != 16; ++i)
+		{
+			std::cout << veb.exist(i) << ",";
+			veb.insert(i, i);
+			std::cout << veb.exist(i) << std::endl;
+		}
+
+		pre_and_suc();
+
+		for (size_t i = 0; i != 16; ++i)
+		{
+			std::cout << "after erase " << i << ":";
+			veb.erase(i);
+			print();
+			std::cout << std::endl;
+		}
+
+		
+
+		int i = 5;
+		
+	}
+
+
+	//void veb_2_test()
+	//{
+	//	using namespace fantasil::veb_2_space;
+	//	
+	//	veb_2<size_t, 16> pv{};
+	//	auto pre_and_suc = [&pv](size_t pos)
+	//		{
+	//			std::cout << "[";
+	//			try {
+	//				size_t i = pv.precursor(pos);
+	//				std::cout << i << ",";
+	//			}
+	//			catch (std::logic_error& e)
+	//			{
+	//				std::cout << "nil,";
+	//			}
+	//			std::cout << pos << ",";
+	//			try {
+	//				size_t i = pv.successor(pos);
+	//				std::cout << i ;
+	//			}
+	//			catch (std::logic_error& e)
+	//			{
+	//				std::cout << "nil";
+	//			}
+	//			std::cout << "]\n";
+
+	//		};
+
+	//	auto print_if_exist = [&pv]()
+	//		{
+	//			if (pv.empty())
+	//				std::cout << "pv is empty!\n";
+	//			else {
+	//				for (size_t i = 0; i != 16; ++i)
+	//				{
+	//					if (pv.exist(i))
+	//						std::cout << "pv[" << i << "] exists" << std::endl;
+	//				}
+	//			};
+	//		};
+	//	//pv.insert(4, 4);
+	//	std::vector<size_t> vec{};
+	//	for (size_t i = 0; i != 16; ++i)
+	//	{
+	//		vec.push_back(i);
+	//	}
+	//	
+	//	std::cout << "before insert:" << std::endl;
+	//	print_if_exist();
+
+	//	for (size_t i = 0; i != 16; ++i)
+	//	{
+	//		pv.insert(i, i);
+	//	}
+	//	std::cout << "after insert:" << std::endl;
+	//	print_if_exist();
+
+	//
+
+	//	for (size_t i = 0; i != 16; ++i)
+	//	{
+	//		pre_and_suc(i);
+	//	}
+
+	//	for (auto i : vec)
+	//	{
+	//		std::cout << "try erase " << i << std::endl;
+	//		pv.erase(i);
+	//		int j = 4;
+	//		
+	//	}
+	//	int j = 5;
+
+	//}
 	void test()
 	{
-		proto_veb_test();
+		veb_test();
 	}
 
 	
